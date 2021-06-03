@@ -864,7 +864,7 @@ procedure BoardRemoveTile(x, y: integer);
 		i, ix, iy: integer;
 		iElem, iColor: byte;
 		floorColor: integer;
-	label Label1;
+	label SearchComplete;
 	begin
 		floorColor := 0;
 		for i := 0 to 3 do begin
@@ -884,13 +884,13 @@ procedure BoardRemoveTile(x, y: integer);
 				or (iElem = E_BOULDER)
 			then begin
 				floorColor := 0;
-				goto Label1;
+				goto SearchComplete;
 			end else if (iElem = E_FLOOR) then begin
 				floorColor := iColor;
 			end;
 		end;
 
-	Label1:
+	SearchComplete:
 		if floorColor = 0 then begin
 			Board.Tiles[x][y].Element := E_EMPTY;
 		end else begin
