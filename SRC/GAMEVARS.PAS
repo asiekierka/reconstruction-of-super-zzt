@@ -110,7 +110,7 @@ interface
 			DrawXOffset: integer;
 			DrawYOffset: integer;
 			TimeLimitSec: integer;
-			unk1: array[14 .. 27] of byte;
+			unkPad: array[14 .. 27] of byte;
 		end;
 		TWorldInfo = record
 			Ammo: integer;
@@ -128,7 +128,7 @@ interface
 			BoardTimeHsec: integer;
 			IsSave: boolean;
 			StonesOfPower: integer;
-			unk3: array[387 .. 398] of byte;
+			unkPad: array[387 .. 398] of byte;
 		end;
 		TEditorStatSetting = record
 			P1, P2, P3: byte;
