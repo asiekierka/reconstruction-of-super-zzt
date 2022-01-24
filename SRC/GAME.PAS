@@ -64,7 +64,7 @@ interface
 	function Signum(val: integer): integer;
 	function Difference(a, b: integer): integer;
 	procedure GameUpdateSidebar;
-	procedure DisplayMessage(time: integer; line1, line2: TSmallString);
+	procedure DisplayMessage(ticks: integer; line1, line2: TSmallString);
 	procedure DamageStat(attackerStatId: integer);
 	procedure BoardDamageTile(x, y: integer);
 	procedure BoardAttack(attackerStatId: integer; x, y: integer);
@@ -1129,7 +1129,7 @@ procedure GameUpdateSidebar;
 		end;
 	end;
 
-procedure DisplayMessage(time: integer; line1, line2: TSmallString);
+procedure DisplayMessage(ticks: integer; line1, line2: TSmallString);
 	begin
 		if GetStatIdAt(0, 0) <> -1 then begin
 			RemoveStat(GetStatIdAt(0, 0));
@@ -1137,7 +1137,7 @@ procedure DisplayMessage(time: integer; line1, line2: TSmallString);
 
 		if (Length(line1) <> 0) or (Length(line2) <> 0) then begin
 			AddStat(0, 0, E_MESSAGE_TIMER, 0, 1, StatTemplateDefault);
-			Board.Stats[Board.StatCount].P2 := Time div (TickTimeDuration + 1);
+			Board.Stats[Board.StatCount].P2 := ticks div (TickTimeDuration + 1);
 			MessageLine1 := line1;
 			MessageLine2 := line2;
 		end;
